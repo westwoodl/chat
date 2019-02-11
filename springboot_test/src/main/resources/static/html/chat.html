@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>聊天</title>
+    <style>
+        body{
+            background-size:100% ;
+            /*chrome背景色*/
+            /*background-color: rgb(249,250,251);*/
+            background-color: rgb(200,239,200);
+        }
+        #msg_div{
+            width: 70%;
+            margin: 0 auto;
+        }
+        #border{
+            text-align: center;
+            /*文字上下居中*/
+            line-height: 35px;
+            height: 35px;
+
+            font-size: 17px;
+            /*白色气泡*/
+            /*background-color: rgb(255,255,255);*/
+
+            border: 0px solid #eee;
+            border-radius: 4px;
+            box-shadow:0px 2px 6px rgb(191,193,194);
+        }
+        .self{
+            margin:15px 20px 15px auto;
+            background-color: rgb(210,227,237);
+        }
+        .other{
+            margin:15px auto 15px 20px;
+            background-color: rgb(255,255,255);
+        }
+        .input{
+            border-radius: 40px;
+            border: 0px;
+            outline: none;
+            padding: 0px 20px;
+
+            height: 38px;
+            width: 400px;
+
+
+        }
+        #input_div{
+            width: 100%;
+            height:40px;
+            position: fixed;
+            bottom: 20px;
+
+            text-align: center;
+        }
+        #text_div{
+            display: inline;
+            width: 400px;;
+            text-align: center;
+        }
+        #button_div{
+            display: inline;
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input:focus{
+            box-shadow:0px 4px 8px rgb(191,193,194);
+            /*background-color: rgb(251,255,190);*/
+        }
+        input:hover{
+            box-shadow:0px 4px 8px rgb(191,193,194);
+        }
+        .send{
+            width: 40px;
+            height: 40px;
+            font-family: "Microsoft Yahei","微软雅黑",SimHei,"黑体","Hiragino Sans GB",STHeiTi,sans-serif;
+            font-size: 5px;
+            color: white;
+            outline: none;
+            background-color: olivedrab;
+            border: none;
+            border-radius:40px ;
+        }
+        div{
+            line-height: -10px;
+        }
+
+    </style>
+    <script type="text/javascript"  src="myjs/msg.js"></script>
+    <script type="text/javascript" src="../js/jQuery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            receive();
+            $(".send").click(send);
+            $("#input").focus();
+        });
+
+        $(document).keydown(function(event){
+            console.log(event.keyCode);
+            if(event.keyCode == 13){
+                send();
+            }
+        });
+    </script>
+</head>
+<body>
+
+
+<div id="msg_div">
+
+    <div id="border" class="self"  style="width: 54px;">呵呵</div>
+
+
+    <div id="border" class="other" style="width: 54px;">尼玛</div>
+
+    <!-- 2.other -->
+
+
+    <div style="width: 100%;height:150px;border: hidden; "></div>
+
+</div>
+
+<div id="input_div">
+    <div id="text_div">
+        <input type="text" name=chat_content placeholder="请输入内容" class="input" value="" id="input"/>
+    </div>
+    <div id="button_div">
+        <input type="button" value="S" class="send" style="font-size: 20px;" >
+    </div>
+</div>
+</body>
+</html>
